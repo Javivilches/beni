@@ -1195,6 +1195,60 @@
   }
 }
 
+@media (max-width: 720px){
+
+  /* Cabecera: que todo quede centrado y en 2 filas coherentes */
+  .header .container{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    gap:14px !important;
+    padding-top:12px !important;
+    padding-bottom:12px !important;
+  }
+
+  /* Marca centrada */
+  .header .brand{
+    width:100% !important;
+    justify-content:center !important;
+    text-align:center !important;
+    margin:0 !important;
+  }
+  .header .brand .name{
+    text-align:left !important; /* cambia a center si quieres */
+  }
+
+  /* Fila de botones (menú + CTA) centrada */
+  .header .nav{
+    width:100% !important;
+    display:flex !important;
+    justify-content:center !important;
+  }
+  .header .cta{
+    width:100% !important;
+    display:flex !important;
+    justify-content:center !important;
+    align-items:center !important;
+    gap:12px !important;
+  }
+
+  /* Botones a la misma altura */
+  .menu-btn{
+    width:44px !important;
+    height:44px !important;
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+  }
+  .header .cta .btn{
+    height:44px !important;
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    padding:0 16px !important;
+    border-radius:999px !important;
+  }
+}
 
   </style>
 </head>
@@ -1921,5 +1975,6 @@ if (waContactBtn){
 
 </body>
 </html>
+
 
 
