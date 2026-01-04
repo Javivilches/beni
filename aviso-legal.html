@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aviso legal</title>
+  <style>
+    :root{
+      --navy:#0B1E3A;
+      --text:#0f172a;
+      --muted:#475569;
+      --border: rgba(15,23,42,.12);
+      --bg:#f5f6f8;
+      --card:#ffffff;
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color:var(--text);
+      background:var(--bg);
+    }
+    a{color:inherit}
+    .topbar{
+      background:var(--navy);
+      color:#fff;
+      padding:14px 0;
+    }
+    .container{
+      width:min(1100px, 92vw);
+      margin:0 auto;
+    }
+    .topbar .row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+    }
+    .brand{
+      font-weight:800;
+      letter-spacing:-.2px;
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+    .brand small{
+      display:block;
+      font-weight:600;
+      opacity:.8;
+      letter-spacing:0;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 14px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.22);
+      text-decoration:none;
+      font-weight:800;
+      background:rgba(255,255,255,.08);
+      color:#fff;
+      white-space:nowrap;
+    }
+    main{padding:40px 0 60px}
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow: 0 20px 60px rgba(2,6,23,.10);
+      padding:28px;
+    }
+    h1{
+      margin:0 0 14px;
+      font-size:34px;
+      letter-spacing:-.6px;
+    }
+    h2{
+      margin:22px 0 10px;
+      font-size:18px;
+      letter-spacing:-.2px;
+    }
+    p, li{
+      color:var(--muted);
+      line-height:1.75;
+      font-size:15.5px;
+    }
+    ul{margin:10px 0 0; padding-left:18px}
+    .meta{
+      margin-top:10px;
+      padding:14px 16px;
+      background:rgba(11,30,58,.04);
+      border:1px solid rgba(11,30,58,.10);
+      border-radius:14px;
+      color:var(--muted);
+      font-size:14.5px;
+    }
+    .footer{
+      margin-top:22px;
+      color:rgba(15,23,42,.55);
+      font-size:13.5px;
+      display:flex;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="container">
+      <div class="row">
+        <div class="brand">
+          José Benítez Barragán
+          <small>Información legal</small>
+        </div>
+        <a class="btn" href="index.html">Volver a la web</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="card">
+        <h1>Aviso legal</h1>
+
+        <div class="meta">
+          <strong>Titular:</strong> José Benítez Barragán<br>
+          <strong>Profesión:</strong> Abogado colegiado (Colegio de Abogados de Jaén)<br>
+          <strong>Domicilio profesional:</strong> [TU DIRECCIÓN]<br>
+          <strong>Email:</strong> [TU EMAIL]<br>
+          <strong>Teléfono:</strong> +34 666 86 91 19
+        </div>
+
+        <h2>Objeto</h2>
+        <p>
+          Este sitio web tiene por objeto facilitar información sobre servicios profesionales relacionados con
+          la revisión, cálculo y gestión de deuda, así como permitir el contacto con el titular.
+        </p>
+        <p>
+          La información publicada es de carácter general e informativo y no constituye asesoramiento jurídico
+          personalizado ni crea relación profesional hasta que exista aceptación expresa del encargo.
+        </p>
+
+        <h2>Condiciones de uso</h2>
+        <p>
+          El usuario se compromete a hacer un uso adecuado del sitio web y a no emplearlo para actividades ilícitas,
+          contrarias a la buena fe o al orden público.
+        </p>
+
+        <h2>Responsabilidad</h2>
+        <p>
+          El titular no se hace responsable del uso que el usuario haga de la información contenida en este sitio web.
+          Aunque se procura mantener los contenidos actualizados, no se garantiza la completa exactitud o actualidad
+          de toda la información en todo momento.
+        </p>
+
+        <h2>Propiedad intelectual</h2>
+        <p>
+          Los contenidos de este sitio web (textos, diseños, logotipos, imágenes y código) están protegidos por la normativa
+          vigente. Queda prohibida su reproducción total o parcial sin autorización expresa.
+        </p>
+
+        <h2>Legislación aplicable</h2>
+        <p>
+          La relación entre usuario y titular se regirá por la normativa española. Para la resolución de cualquier conflicto,
+          las partes se someten a los juzgados y tribunales que correspondan conforme a derecho.
+        </p>
+
+        <div class="footer">
+          <div>© 2026 José Benítez Barragán</div>
+                  </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

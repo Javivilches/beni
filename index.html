@@ -1,0 +1,1821 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>José Benítez Barragán | Revisión de deuda y defensa</title>
+
+  <!-- Tipografía más profesional -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --dark:#2b3a44;      /* barra superior */
+      --navy:#071525;      /* vuestro azul marino */
+      --bg:#ffffff;
+      --text:#0b1220;
+      --muted:rgba(255,255,255,.88);
+      --muted2:#6b7280;
+      --border:rgba(15,23,42,.10);
+      --shadow:0 14px 40px rgba(2,6,23,.12);
+      --radius:14px;
+
+      --topbar-h:44px;     /* NUEVO */
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      padding-top: var(--topbar-h);  /* NUEVO */
+      font-family: "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color:var(--text);
+      background:#f5f6f8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    a{color:inherit; text-decoration:none}
+    .container{width:min(1180px, 92vw); margin:0 auto}
+
+    /* ===== Top bar (oscura) ===== */
+    .topbar{
+      background:var(--navy);
+      color:#fff;
+      font-size:13.5px;
+
+      position:fixed;           /* NUEVO */
+      top:0; left:0; right:0;   /* NUEVO */
+      height:var(--topbar-h);   /* NUEVO */
+      z-index:100;              /* NUEVO */
+      display:flex;             /* NUEVO */
+      align-items:center;       /* NUEVO */
+    }
+    .topbar .wrap{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding:10px 0;
+      width:100%;               /* NUEVO */
+    }
+    .top-left{
+      display:flex;
+      gap:18px;
+      align-items:center;
+      flex-wrap:wrap;
+      color:var(--muted);
+    }
+    .top-item{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+    }
+    .ico{
+      width:16px; height:16px;
+      display:inline-block;
+      flex:0 0 auto;
+    }
+    .top-right{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      color:var(--muted);
+    }
+    .wa{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      color:#ffffff;
+      font-weight:700;
+    }
+
+    /* ===== Main nav (blanca) ===== */
+    header{
+      background:#fff;
+      border-bottom:1px solid var(--border);
+      box-shadow:0 10px 24px rgba(2,6,23,.06);
+      position:sticky;
+      top:var(--topbar-h);  /* NUEVO (antes top:0) */
+      z-index:50;
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:14px 0;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:260px;
+    }
+    .brand img{
+      width:75px;
+      height:75px;
+      object-fit:contain;
+      border-radius:18px;
+      border:1px solid var(--border);
+      padding:10px;
+      background:#fff;
+    }
+
+    .brand .name{
+      display:flex;
+      flex-direction:column;
+      line-height:1.15;
+    }
+    .brand .name strong{font-size:17px; font-weight:800; letter-spacing:.1px}
+    .brand .name span{font-size:13.5px; color:var(--muted2)}
+    nav ul{
+      list-style:none;
+      margin:0; padding:0;
+      display:flex;
+      gap:18px;
+      align-items:center;
+    }
+    nav a{
+      font-weight:700;
+      font-size:13.5px;
+      color:#1f2937;
+      padding:10px 10px;
+      border-radius:12px;
+    }
+    nav a:hover{background:rgba(2,6,23,.04)}
+    .cta{
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+    .btn{
+      border:1px solid var(--border);
+      background:#fff;
+      padding:11px 14px;
+      border-radius:12px;
+      font-weight:800;
+      cursor:pointer;
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      transition:.15s ease;
+      user-select:none;
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn.navy{
+      background:var(--navy);
+      border-color:rgba(7,21,37,.55);
+      color:#fff;
+      padding:12px 16px;
+      border-radius:12px;
+    }
+
+    /* ===== Hero (imagen + overlay + título) ===== */
+    .hero{
+      height: 560px;
+      position:relative;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,.62) 0%, rgba(0,0,0,.30) 58%, rgba(0,0,0,.12) 100%),
+        url("imagenfondo.jpg");
+      background-size:cover;
+      background-position:center 35%;
+      display:flex;
+      align-items:center;
+    }
+    .hero .content{
+      width:min(820px, 92vw);
+      margin-left: calc((100vw - min(1180px, 92vw)) / 2);
+    }
+    .hero h1{
+      margin:0 0 12px;
+      color:#fff;
+      font-size: clamp(34px, 4.6vw, 56px);
+      letter-spacing:-.8px;
+      line-height:1.05;
+      text-shadow: 0 10px 28px rgba(0,0,0,.35);
+      font-weight:800;
+    }
+    .hero p{
+      margin:0 0 18px;
+      color:rgba(255,255,255,.88);
+      line-height:1.75;
+      font-size:15.5px;
+      max-width:72ch;
+    }
+    .hero .hero-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      background:#fff;
+      color:#0b1220;
+      font-weight:800;
+      padding:14px 18px;
+      border-radius:12px;
+      box-shadow: var(--shadow);
+      border:1px solid rgba(255,255,255,.35);
+    }
+
+    /* Responsive */
+    .menu-btn{display:none}
+    @media (max-width: 980px){
+      nav ul{display:none}
+      .menu-btn{display:inline-flex}
+      .hero{height: 480px}
+      .hero .content{margin-left:auto; margin-right:auto}
+    }
+
+    /* ==============================
+       NUEVO: Sección Servicios (blanco)
+       ============================== */
+    #servicios{
+      background: rgb(255,255,255);
+      padding: 80px 0;
+    }
+    #servicios h2{
+      margin: 0 0 10px;
+      font-size: 42px;
+      font-weight: 800;
+      letter-spacing: -0.6px;
+      color: var(--text);
+    }
+    #servicios .intro{
+      margin: 0 0 44px;
+      color: var(--muted2);
+      font-size: 18px;
+      line-height: 1.75;
+      max-width: 78ch;
+    }
+    .services-grid{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .service-card{
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 30px;
+    }
+    .service-card h3{
+      margin: 0 0 12px;
+      font-size: 26px;
+      line-height: 1.15;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.4px;
+    }
+    .service-card p{
+      margin: 0 0 18px;
+      color: var(--muted2);
+      font-size: 16px;
+      line-height: 1.65;
+    }
+    .service-card ul{
+      margin: 0;
+      padding-left: 18px;
+      line-height: 1.75;
+      color: var(--text);
+      font-size: 16px;
+    }
+    .service-card li{
+      margin: 10px 0;
+    }
+
+    @media (max-width: 980px){
+      .services-grid{ grid-template-columns: 1fr; }
+      #servicios h2{ font-size: 34px; }
+      #servicios .intro{ font-size: 16px; }
+      .service-card h3{ font-size: 22px; }
+    }
+    /* ===== Barra de confianza ===== */
+    .trust-bar{
+      background: var(--navy);
+      color: #ffffff;
+      padding: 28px 0;
+    }
+
+    .trust-grid{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      align-items: center;
+    }
+
+    .trust-item{
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .trust-ico{
+      width: 28px;
+      height: 28px;
+      color: #ffffff;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 900px){
+      .trust-grid{
+        grid-template-columns: 1fr;
+        gap: 18px;
+        text-align: center;
+      }
+      .trust-item{
+        justify-content: center;
+      }
+    }
+
+    /* ==============================
+       NUEVO: Carrusel de Opiniones
+       ============================== */
+    #opiniones{
+      background:#f5f6f8;
+      padding: 70px 0;
+    }
+    #opiniones h2{
+      margin: 0 0 10px;
+      font-size: 42px;
+      font-weight: 800;
+      letter-spacing: -0.6px;
+      color: var(--text);
+    }
+    #opiniones .intro{
+      margin: 0 0 26px;
+      color: var(--muted2);
+      font-size: 18px;
+      line-height: 1.75;
+      max-width: 78ch;
+    }
+
+    .reviews-wrap{
+      position:relative;
+      margin-top: 10px;
+    }
+
+    .reviews-track{
+      display:flex;
+      gap:18px;
+      overflow:auto;
+      scroll-snap-type:x mandatory;
+      scroll-behavior:smooth;
+      padding: 10px 6px;
+      width:100%;
+    }
+    .reviews-track::-webkit-scrollbar{height:10px}
+    .reviews-track::-webkit-scrollbar-thumb{background:rgba(15,23,42,.18);border-radius:999px}
+    .reviews-track::-webkit-scrollbar-track{background:transparent}
+
+    .review-card{
+      flex:0 0 calc((100% - 36px) / 3); /* 3 visibles */
+      scroll-snap-align:start;
+      background:#fff;
+      border:1px solid rgba(15,23,42,.06);
+      border-radius: 22px; /* más redondeado */
+      padding:18px 18px 14px;
+      box-shadow: 0 14px 34px rgba(2,6,23,.08); /* sombra más suave */
+      min-height: 180px;
+    }
+
+    .review-head{
+      display:flex;
+      align-items:flex-start;
+      gap:12px;
+      margin-bottom:10px;
+    }
+    .avatar{
+      width:44px;height:44px;
+      border-radius:50%;
+      background:#e5e7eb;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:800;
+      color:#374151;
+      background-size:cover;
+      background-position:center;
+      flex:0 0 auto;
+      overflow:hidden;
+    }
+    .meta{flex:1}
+    .name{font-weight:800;color:#111827;line-height:1.1}
+    .date{font-size:12.5px;color:#6b7280;margin-top:3px}
+    .stars{margin-top:6px;display:flex;gap:2px}
+    .star{font-size:16px;line-height:1}
+    .star.on{color:#f4b400}
+    .star.off{color:#e5e7eb}
+
+
+    .review-text{
+      margin:0;
+      color:#111827;
+      font-size:15.5px;
+      line-height:1.6;
+    }
+    .review-text.clamp{
+      display:-webkit-box;
+      -webkit-line-clamp:3;
+      -webkit-box-orient:vertical;
+      overflow:hidden;
+    }
+
+    .readmore{
+      margin-top:10px;
+      background:transparent;
+      border:0;
+      color:#6b7280;
+      font-weight:700;
+      cursor:pointer;
+      padding:0;
+    }
+    .readmore:hover{color:#111827}
+
+    /* Flechas semiflotantes encima */
+    .reviews-arrow{
+      position:absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width:46px;height:46px;
+      border-radius:999px;
+      border:1px solid rgba(15,23,42,.10);
+      background:#fff;
+      box-shadow: 0 18px 40px rgba(2,6,23,.16);
+      font-size:30px;
+      line-height:1;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      z-index:5;
+      user-select:none;
+    }
+    .reviews-arrow.left{left:-10px;}
+    .reviews-arrow.right{right:-10px;}
+    .reviews-arrow:active{transform: translateY(-50%) scale(.98);}
+
+    @media (max-width: 980px){
+      .review-card{flex:0 0 85%;}
+      .reviews-arrow{display:none;}
+      #opiniones h2{ font-size: 34px; }
+      #opiniones .intro{ font-size: 16px; }
+    }
+
+    /* Modal simple (Leer más) */
+    .review-modal{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.55);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+      z-index:9999;
+    }
+    .review-modal[aria-hidden="false"]{display:flex;}
+    .review-modal-card{
+      width:min(640px, 92vw);
+      background:#fff;
+      border-radius:18px;
+      padding:18px 18px 16px;
+      box-shadow:0 20px 60px rgba(0,0,0,.35);
+      position:relative;
+    }
+    .review-modal-close{
+      position:absolute;
+      top:10px; right:12px;
+      border:0;
+      background:transparent;
+      font-size:18px;
+      cursor:pointer;
+      color:#111827;
+    }
+    .review-modal-body{
+      padding-top:8px;
+      color:#111827;
+      font-size:16px;
+      line-height:1.75;
+    }
+
+.pasos{
+  background:#fff;
+  padding:90px 0;
+}
+
+.pasos h2{
+  text-align:center;
+  font-size:42px;
+  font-weight:800;
+  margin-bottom:70px;
+  letter-spacing:-.6px;
+}
+
+.paso{
+  display:flex;
+  align-items:center;
+  gap:70px;
+  margin-bottom:90px;
+}
+
+.paso.reverse{
+  flex-direction:row-reverse;
+}
+
+.paso-img{
+  flex:1;
+}
+
+.paso-img img{
+  width:100%;
+  height:auto;
+  border-radius:18px;
+  box-shadow:0 18px 50px rgba(0,0,0,.15);
+}
+
+.paso-texto{
+  flex:1;
+}
+
+.paso-texto h3{
+  font-size:26px;
+  font-weight:800;
+  margin-bottom:14px;
+}
+
+.paso-texto p{
+  font-size:17px;
+  line-height:1.7;
+  color:#374151;
+}
+
+@media (max-width: 900px){
+  .paso,
+  .paso.reverse{
+    flex-direction:column;
+    gap:30px;
+  }
+
+  .pasos h2{
+    font-size:32px;
+  }
+}
+/* Reducir espacio entre el carrusel (#opiniones) y la sección pasos */
+#opiniones{ padding-bottom: 35px; }   /* antes 70px */
+.pasos{ padding-top: 40px; }          /* antes 90px */
+.pasos h2{ margin-bottom: 40px; }     /* antes 70px */
+
+/* Animaciones al hacer scroll (suave y profesional) */
+.reveal{
+  opacity:0;
+  transform: translateY(16px);
+  transition: opacity .6s ease, transform .6s ease;
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible{
+  opacity:1;
+  transform: translateY(0);
+}
+
+/* Si el usuario tiene reducido el movimiento, respetarlo */
+@media (prefers-reduced-motion: reduce){
+  .reveal{
+    opacity:1 !important;
+    transform:none !important;
+    transition:none !important;
+  }
+}
+
+/* ===== FAQ centradas estilo “card” ===== */
+.faq{
+  background:#f5f6f8;
+  padding:80px 0;
+}
+
+.faq-head{
+  text-align:center;
+  margin-bottom:28px;
+}
+
+.faq-head h2{
+  margin:0 0 10px;
+  font-size:42px;
+  font-weight:800;
+  letter-spacing:-.6px;
+  color:var(--text);
+}
+
+.faq-head p{
+  margin:0;
+  color:var(--muted2);
+  font-size:18px;
+  line-height:1.7;
+}
+
+.faq-card{
+  width:min(980px, 92vw);
+  margin: 0 auto;
+  background:#fff;
+  border:1px solid rgba(15,23,42,.08);
+  border-radius:18px;
+  box-shadow: 0 20px 60px rgba(2,6,23,.10);
+  overflow:hidden;
+}
+
+/* cada item */
+.faq-item{
+  border-bottom:1px solid rgba(15,23,42,.08);
+}
+
+.faq-item:last-child{
+  border-bottom:0;
+}
+
+/* reset del summary */
+.faq-item summary{
+  list-style:none;
+  cursor:pointer;
+  padding:18px 22px;
+  font-weight:800;
+  color:#111827;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  font-size:16.5px;
+}
+
+.faq-item summary::-webkit-details-marker{ display:none; }
+
+/* chevron */
+.faq-item summary::after{
+  content:"";
+  width:18px;
+  height:18px;
+  flex:0 0 auto;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6.7 9.3a1 1 0 0 1 1.4 0L12 13.2l3.9-3.9a1 1 0 1 1 1.4 1.4l-4.6 4.6a1 1 0 0 1-1.4 0L6.7 10.7a1 1 0 0 1 0-1.4z'/%3E%3C/svg%3E") center/contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6.7 9.3a1 1 0 0 1 1.4 0L12 13.2l3.9-3.9a1 1 0 1 1 1.4 1.4l-4.6 4.6a1 1 0 0 1-1.4 0L6.7 10.7a1 1 0 0 1 0-1.4z'/%3E%3C/svg%3E") center/contain no-repeat;
+  opacity:.75;
+  transform: rotate(0deg);
+  transition: transform .2s ease, opacity .2s ease;
+}
+
+.faq-item[open] summary::after{
+  transform: rotate(180deg);
+  opacity:1;
+}
+
+/* body */
+.faq-body{
+  padding: 0 22px 18px;
+  color:#374151;
+  font-size:16px;
+  line-height:1.75;
+}
+
+/* hover suave */
+.faq-item summary:hover{
+  background:rgba(2,6,23,.03);
+}
+
+/* responsive */
+@media (max-width: 900px){
+  .faq-head h2{ font-size:32px; }
+  .faq-head p{ font-size:16px; }
+  .faq-item summary{ font-size:15.5px; padding:16px 16px; }
+  .faq-body{ padding:0 16px 16px; }
+}
+
+/* ===== Contacto centrado ===== */
+.contacto{
+  background:#ffffff;
+  padding:90px 0;
+}
+
+.contacto-head{
+  text-align:center;
+  max-width:700px;
+  margin:0 auto 40px;
+}
+
+.contacto-head h2{
+  margin:0 0 14px;
+  font-size:42px;
+  font-weight:800;
+  letter-spacing:-.6px;
+}
+
+.contacto-head p{
+  margin:0;
+  color:var(--muted2);
+  font-size:18px;
+  line-height:1.7;
+}
+
+.contacto-form{
+  max-width:520px;
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.contacto-form input,
+.contacto-form textarea{
+  width:100%;
+  padding:14px 16px;
+  font-size:15.5px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  font-family:inherit;
+}
+
+.contacto-form textarea{
+  resize:vertical;
+}
+
+.contacto-form button{
+  margin-top:8px;
+  justify-content:center;
+}
+
+@media (max-width:900px){
+  .contacto-head h2{ font-size:32px; }
+  .contacto-head p{ font-size:16px; }
+}
+
+/* Contacto: más grande (ancho + inputs) */
+.contacto-form{
+  max-width: 720px;  /* antes 520px */
+}
+
+/* un pelín más de “presencia” */
+.contacto-form input,
+.contacto-form textarea{
+  padding:16px 18px;
+  font-size:16px;
+  border-radius:14px;
+}
+
+/* Botonera 3 acciones */
+.contacto-actions{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:12px;
+  margin-top:8px;
+}
+
+.btn-wide{
+  width:100%;
+  justify-content:center;
+}
+
+/* Botón secundario (outline) */
+.btn-outline{
+  background:#fff;
+  border:1px solid var(--border);
+  color:#111827;
+}
+
+/* Botón WhatsApp (coherente con la marca, sin “verde chillón”) */
+.btn-wa{
+  background:#fff;
+  border:1px solid var(--border);
+  color:#111827;
+}
+
+/* Asegurar tipografía EXACTA como barra (usa Inter ya cargada) */
+.contacto-actions .btn{
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  font-weight:800;
+  font-size:15px;
+  padding:12px 16px;
+  border-radius:12px;
+}
+
+@media (max-width: 900px){
+  .contacto-form{ max-width: 560px; }
+}
+
+@media (max-width: 720px){
+  .contacto-actions{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Forzar que los 3 botones del contacto sean idénticos */
+.contacto-actions{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:14px;
+  align-items:stretch; /* CLAVE: todos a la misma altura y línea */
+}
+
+.contacto-actions .btn{
+  height:52px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0;
+  margin:0;            /* CLAVE: elimina micro-desplazamientos */
+  font-size:15px;
+  font-weight:800;
+  line-height:1;
+  white-space:nowrap;
+}
+
+
+/* móvil: apilados, pero iguales */
+@media (max-width: 720px){
+  .contacto-actions{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== Cierre final (navy) ===== */
+.closing{
+  background: var(--navy);
+  color:#fff;
+  padding: 70px 0;
+}
+
+.closing-grid{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:40px;
+}
+
+.closing h2{
+  margin:0 0 12px;
+  font-size:42px;
+  font-weight:800;
+  letter-spacing:-.6px;
+  line-height:1.1;
+}
+
+.closing p{
+  margin:0;
+  max-width:72ch;
+  color: rgba(255,255,255,.85);
+  font-size:16.5px;
+  line-height:1.75;
+}
+
+.closing-cta{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:10px;
+  min-width: 260px;
+}
+
+.closing-btn{
+  background:#fff !important;
+  color:#0b1220 !important;
+  border-color: rgba(255,255,255,.35) !important;
+  box-shadow: 0 18px 40px rgba(0,0,0,.25);
+  padding: 14px 18px;
+  border-radius: 14px;
+}
+
+.closing-note{
+  color: rgba(255,255,255,.70);
+  font-size:13.5px;
+  font-weight:700;
+}
+
+@media (max-width: 980px){
+  .closing-grid{
+    flex-direction:column;
+    align-items:flex-start;
+    text-align:left;
+  }
+  .closing-cta{
+    align-items:flex-start;
+  }
+  .closing h2{
+    font-size:32px;
+  }
+}
+
+/* ===== Footer tipo landing (NAVY) ===== */
+.site-footer{
+  background: var(--navy);
+  color: rgba(255,255,255,.88);
+  padding: 56px 0 22px;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 40px;
+  align-items:start;
+}
+
+.footer-brand-top{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+}
+
+.footer-brand img{
+  width:64px;
+  height:64px;
+  object-fit:contain;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.18);
+  padding:10px;
+  background: rgba(255,255,255,.06);
+}
+
+.footer-title{
+  font-weight:800;
+  color:#fff;
+  font-size:18px;
+  margin-bottom:6px;
+}
+
+.footer-sub{
+  color: rgba(255,255,255,.75);
+  line-height:1.75;
+  font-size:15px;
+  max-width: 46ch;
+}
+
+.footer-col-title{
+  font-weight:800;
+  color:#fff;
+  margin-bottom:12px;
+  font-size:15px;
+}
+
+.site-footer a{
+  display:block;
+  color: rgba(255,255,255,.78);
+  font-weight:600;
+  font-size:14.5px;
+  padding:6px 0;
+  transition: .15s ease;
+}
+
+.site-footer a:hover{
+  color:#fff;
+  transform: translateX(2px);
+}
+
+.footer-bottom{
+  margin-top: 34px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255,255,255,.14);
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  color: rgba(255,255,255,.68);
+  font-size:13.5px;
+}
+
+@media (max-width: 980px){
+  .footer-grid{
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .footer-sub{ max-width: 70ch; }
+  .footer-bottom{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+}
+
+/* ===== Trust bar marquee (movimiento continuo) ===== */
+.trust-bar{
+  background: var(--navy);
+  color:#fff;
+  padding: 20px 0; /* un pelín más compacto */
+  overflow:hidden;
+}
+
+.trust-marquee{
+  overflow:hidden;
+  width:100%;
+  position:relative;
+}
+
+.trust-marquee-track{
+  display:flex;
+  width:max-content;
+  animation: trustScroll 14s linear infinite; /* más rápido (antes 22s) */
+}
+
+.trust-marquee-group{
+  display:flex;
+  align-items:center;
+  gap:90px;          /* más espacio entre frases (antes 48px) */
+  padding-right:140px; /* gran “separador” antes de que empiece el duplicado */
+}
+}
+
+/* Reusa tus estilos de trust-item e iconos */
+.trust-item{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  font-weight:700;
+  font-size:16px;
+  white-space:nowrap;
+}
+
+.trust-ico{
+  width:28px;
+  height:28px;
+  color:#ffffff;
+  flex-shrink:0;
+}
+
+/* Animación */
+@keyframes trustScroll{
+  from{ transform: translateX(0); }
+  to  { transform: translateX(-50%); }
+}
+
+/* Pausar al pasar el ratón (detalle pro) */
+.trust-marquee:hover .trust-marquee-track{
+  animation-play-state: paused;
+}
+
+/* Respetar “reducir movimiento” */
+@media (prefers-reduced-motion: reduce){
+  .trust-marquee-track{ animation:none; }
+}
+
+/* Servicios: reveal más sutil */
+.service-card.reveal{
+  transform: translateY(10px);
+}
+
+.service-card.reveal.is-visible{
+  transform: translateY(0);
+}
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Barra superior oscura -->
+  <div class="topbar">
+    <div class="container">
+     <div class="wrap">
+  <div class="top-left"></div>
+
+  <div class="top-right">
+    <span class="top-item">
+      <!-- Teléfono -->
+      <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M6.7 3.6c.6-.6 1.6-.6 2.2 0l2.1 2.1c.6.6.6 1.6 0 2.2l-1.1 1.1c.4.9 1.1 2.1 2.3 3.3 1.2 1.2 2.4 1.9 3.3 2.3l1.1-1.1c.6-.6 1.6-.6 2.2 0l2.1 2.1c.6.6.6 1.6 0 2.2l-1.1 1.1c-.8.8-2 1.1-3.1.8-2.4-.6-5.3-2.1-7.8-4.6-2.5-2.5-4-5.4-4.6-7.8-.3-1.1 0-2.3.8-3.1l1.1-1.1Z"
+              fill="#ffffff" fill-opacity="0.95"/>
+      </svg>
+      <span>+34 666 86 91 19</span>
+    </span>
+
+    <span class="top-item">
+      <!-- Email -->
+      <svg class="ico ico-mail" viewBox="0 0 24 24" aria-hidden="true">
+  <path
+    d="M3 6.75A1.75 1.75 0 0 1 4.75 5h14.5A1.75 1.75 0 0 1 21 6.75v10.5A1.75 1.75 0 0 1 19.25 19H4.75A1.75 1.75 0 0 1 3 17.25V6.75Zm1.6.25 7.4 5.2 7.4-5.2H4.6Zm14.8 1.95-6.9 4.85a1 1 0 0 1-1.15 0L4.6 8.95v8.3c0 .41.34.75.75.75h12.3c.41 0 .75-.34.75-.75v-8.3Z"
+    fill="currentColor"/>
+</svg>
+
+  <path
+    d="M3 6.75A1.75 1.75 0 0 1 4.75 5h
+
+       <path d="M4 6.8c0-.99.81-1.8 1.8-1.8h12.4c.99 0 1.8.81 1.8 1.8v10.4c0 .99-.81 1.8-1.8 1.8H5.8c-.99 0-1.8-.81-1.8-1.8V6.8Z"
+      fill="#ffffff"/>
+<path d="M6.2 7.4h11.6L12 12.2 6.2 7.4Z"
+      fill="#ffffff"/>
+
+      </svg>
+      <span>josebenitez@icajaen.es</span>
+    </span>
+
+    <a class="wa" href="#" id="waTop">
+      <svg class="ico" viewBox="0 0 32 32" aria-hidden="true">
+        <path fill="#25D366" d="M19.11 17.205c-.28-.14-1.64-.81-1.9-.9-.25-.1-.43-.14-.61.14-.18.28-.7.9-.86 1.08-.16.18-.32.2-.6.06-.28-.14-1.18-.43-2.24-1.38-.83-.74-1.39-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.12-.12.28-.32.42-.48.14-.16.18-.28.28-.46.1-.18.04-.34-.02-.48-.06-.14-.61-1.47-.84-2.02-.22-.54-.44-.46-.61-.47l-.52-.01c-.18 0-.48.06-.73.34-.25.28-.96.94-.96 2.3 0 1.36.99 2.67 1.13 2.85.14.18 1.95 2.98 4.73 4.18.66.28 1.18.45 1.58.58.66.21 1.26.18 1.73.11.53-.08 1.64-.67 1.87-1.31.23-.64.23-1.18.16-1.31-.07-.13-.25-.2-.53-.34z"/>
+        <path fill="#25D366" d="M16.01 3C9.39 3 4 8.38 4 15c0 2.64.87 5.08 2.33 7.05L4 29l7.13-2.28A11.93 11.93 0 0 0 16.01 27C22.63 27 28 21.62 28 15S22.63 3 16.01 3zm0 21.9c-2.02 0-3.98-.54-5.68-1.56l-.41-.25-4.23 1.35 1.38-4.12-.27-.43A9.87 9.87 0 0 1 6.1 15c0-5.47 4.45-9.92 9.91-9.92S25.92 9.53 25.92 15c0 5.47-4.45 9.9-9.91 9.9z"/>
+      </svg>
+      Escríbenos
+    </a>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+  <!-- Barra blanca (logo + menú + botón) -->
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="#">
+          <img src="logobeni.jpg" alt="Logo José Benítez Barragán">
+          <div class="name">
+            <strong>José Benítez Barragán</strong>
+            <span>Abogado · Revisión de deuda y defensa</span>
+          </div>
+        </a>
+
+        <nav aria-label="Menú principal">
+          <ul>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#opiniones">Opiniones</a></li>
+            <li><a href="#pasos">Paso a paso</a></li>
+            <li><a href="#pf">Preguntas frecuentes</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </nav>
+
+        <div class="cta">
+          <button class="btn menu-btn" type="button">☰</button>
+          <a class="btn navy" href="#contacto">Solicitar revisión</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero con imagen -->
+  <section class="hero">
+    <div class="content">
+      <h1>Recalculamos tu deuda.</h1>
+      <p>
+        Si te reclaman una deuda, revisamos tu préstamo, detectamos partidas discutibles y actuamos para que pagues solo lo que corresponde.
+      </p>
+      <a class="hero-btn" href="#contacto">Solicitar revisión →</a>
+    </div>
+  </section>
+
+  <!-- ==============================
+       NUEVO: Sección Servicios
+       ============================== -->
+  <section id="servicios">
+    <div class="container">
+      <h2>Servicios</h2>
+      <p class="intro">
+        Nuestro trabajo se apoya en un análisis técnico riguroso y en una estrategia legal proporcional al caso.
+              </p>
+
+      <div class="services-grid">
+        <article class="service-card reveal">
+          <h3>Revisión y cálculo de deuda correcta</h3>
+          <p>Para saber qué debes realmente y no pagar de más.</p>
+          <ul>
+            <li>Análisis de escritura, novaciones y condiciones</li>
+            <li>Revisión de movimientos y liquidaciones</li>
+            <li>Recalculo de la deuda conforme a la normativa aplicable</li>
+            <li>Comparativa con la deuda reclamada</li>
+            <li>Informe técnico claro y documentado</li>
+          </ul>
+        </article>
+
+        <article class="service-card reveal">
+          <h3>Estudio, oposición y negociación</h3>
+          <p>Para frenar la reclamación y buscar un acuerdo ajustado.</p>
+          <ul>
+            <li>Incluye el estudio técnico completo</li>
+            <li>Contestación a requerimientos y reclamaciones</li>
+            <li>Negociación con banco o fondo</li>
+            <li>Propuesta basada en deuda correcta</li>
+          </ul>
+        </article>
+
+        <article class="service-card reveal">
+          <h3>Defensa integral</h3>
+          <p>Cuando no es posible el acuerdo o ya existe procedimiento.</p>
+          <ul>
+            <li>Defensa judicial</li>
+            <li>Presentación de escritos procesales</li>
+            <li>Uso del informe técnico como base</li>
+            <li>Objetivo: reducir la deuda</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+<section class="trust-bar">
+  <div class="container">
+    <div class="trust-marquee" aria-label="Mensajes de confianza">
+      <div class="trust-marquee-track">
+        <!-- Bloque 1 -->
+        <div class="trust-marquee-group">
+          <div class="trust-item">
+            <svg class="trust-ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
+              <path d="M7.5 12.5l3 3 6-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>96% de casos ganados</span>
+          </div>
+
+          <div class="trust-item">
+            <svg class="trust-ico" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2l3 6 6 .9-4.5 4.3 1.1 6.3L12 16.8 6.4 19.5l1.1-6.3L3 8.9 9 8l3-6Z" fill="currentColor"/>
+            </svg>
+            <span>Análisis técnico documentado</span>
+          </div>
+
+          <div class="trust-item">
+            <svg class="trust-ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
+              <text x="12" y="16" text-anchor="middle" font-size="12" font-weight="700" fill="currentColor">€</text>
+            </svg>
+            <span>Solo cobramos si tú ganas</span>
+          </div>
+<div class="trust-item">
+  <svg class="trust-ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+  <path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linejoin="round"/>
+  <path d="M14 3v5h5"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linejoin="round"/>
+</svg>
+
+    <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
+    <path d="M7.5 12.5l3 3 6-7"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"/>
+  </svg>
+  <span>Especialistas en gestión de deuda</span>
+</div>
+
+        </div>
+
+        <!-- Bloque 2 (duplicado para bucle perfecto) -->
+        <div class="trust-marquee-group" aria-hidden="true">
+          <div class="trust-item">
+            <svg class="trust-ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
+              <path d="M7.5 12.5l3 3 6-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>96% de casos ganados</span>
+          </div>
+
+          <div class="trust-item">
+            <svg class="trust-ico" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2l3 6 6 .9-4.5 4.3 1.1 6.3L12 16.8 6.4 19.5l1.1-6.3L3 8.9 9 8l3-6Z" fill="currentColor"/>
+            </svg>
+            <span>Análisis técnico documentado</span>
+          </div>
+
+          <div class="trust-item">
+            <svg class="trust-ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
+              <text x="12" y="16" text-anchor="middle" font-size="12" font-weight="700" fill="currentColor">€</text>
+            </svg>
+            <span>Solo cobramos si tú ganas</span>
+<div class="trust-item">
+  <svg class="trust-ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+  <path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linejoin="round"/>
+  <path d="M14 3v5h5"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linejoin="round"/>
+</svg>
+
+    <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
+    <path d="M7.5 12.5l3 3 6-7"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"/>
+  </svg>
+  <span>Especialistas en gestión de deuda</span>
+</div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- ==============================
+       NUEVO: Carrusel Opiniones
+       ============================== -->
+  <section id="opiniones">
+    <div class="container">
+      <h2>Opiniones</h2>
+      <p class="intro">
+        Reseñas de clientes sobre el análisis técnico, la claridad del informe y el acompañamiento durante el proceso.
+      </p>
+
+      <div class="reviews-wrap">
+        <button class="reviews-arrow left" type="button" aria-label="Anterior" id="revPrev">‹</button>
+
+        <div class="reviews-track" id="reviewsTrack">
+          <!-- 1 -->
+          <article class="review-card">
+            <div class="review-head">
+              <div class="avatar" style="background-image:url('https://i.pravatar.cc/80?img=12')"></div>
+              <div class="meta">
+                <div class="name">Bego Navarro</div>
+                <div class="date">2025-08-04</div>
+                <div class="stars">
+                  <span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span>
+                </div>
+              </div>
+             
+            </div>
+            <p class="review-text">Rápido, fácil y eficaz. Muchas gracias.</p>
+          </article>
+
+          <!-- 2 -->
+          <article class="review-card">
+            <div class="review-head">
+             <div class="avatar" style="background-image:url('https://i.pravatar.cc/80?img=14')"></div>
+              <div class="meta">
+                <div class="name">Daniel David</div>
+                <div class="date">2025-07-07</div>
+                <div class="stars">
+                  <span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span>
+                </div>
+              </div>
+             
+            </div>
+            <p class="review-text clamp" data-full="Fácil y rápido: me pidieron la documentación, la envié y me devolvieron un informe muy claro con comparativa. Con eso negociamos y ajustaron la cifra reclamada. Trato serio y directo.">
+              Fácil y rápido: me pidieron la documentación, la envié y me devolvieron un informe muy claro...
+            </p>
+            <button class="readmore" type="button">Leer más</button>
+          </article>
+
+          <!-- 3 -->
+          <article class="review-card">
+            <div class="review-head">
+              <div class="avatar" style="background-image:url('https://i.pravatar.cc/80?img=22')"></div>
+              <div class="meta">
+                <div class="name">Jesús Muñoz Díaz</div>
+                <div class="date">2025-07-02</div>
+                <div class="stars">
+                  <span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span>
+                </div>
+              </div>
+              
+            </div>
+            <p class="review-text">Todo perfecto. Recalculamos mi hipoteca y conseguí ahorrar una cantidad importante respecto a lo que me demandaban en un principio.</p>
+          </article>
+
+          <!-- 4 -->
+          <article class="review-card">
+            <div class="review-head">
+              <div class="avatar" style="background-image:url('https://i.pravatar.cc/80?img=47')"></div>
+              <div class="meta">
+                <div class="name">María C. R.</div>
+                <div class="date">2025-06-18</div>
+                <div class="stars">
+                  <span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star off">★</span>
+                </div>
+              </div>
+                         </div>
+            <p class="review-text">Me explicaron cada punto con paciencia y con cifras. Muy recomendable.</p>
+          </article>
+
+          <!-- 5 -->
+          <article class="review-card">
+            <div class="review-head">
+              <div class="avatar" style="background-image:url('https://i.pravatar.cc/80?img=33')"></div>
+              <div class="meta">
+                <div class="name">Antonio L.</div>
+                <div class="date">2025-06-02</div>
+                <div class="stars">
+                  <span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span>
+                </div>
+              </div>
+             
+            </div>
+            <p class="review-text clamp" data-full="Tenía una reclamación con una cifra que no cuadraba. Revisaron escritura y movimientos, detectaron conceptos discutibles y lo dejaron por escrito en un informe. Con eso la negociación fue mucho más sólida.">
+              Tenía una reclamación con una cifra que no cuadraba. Revisaron escritura y movimientos, detectaron conceptos...
+            </p>
+            <button class="readmore" type="button">Leer más</button>
+          </article>
+
+          <!-- 6 -->
+          <article class="review-card">
+            <div class="review-head">
+              <div class="avatar" style="background-image:url('https://i.pravatar.cc/80?img=49')"></div>
+              <div class="meta">
+                <div class="name">Laura P.</div>
+                <div class="date">2025-05-19</div>
+                <div class="stars">
+                  <span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star off">★</span>
+                </div>
+              </div>
+              
+            </div>
+            <p class="review-text">Atención rápida por WhatsApp y el informe muy claro. Gracias.</p>
+          </article>
+
+          <!-- 7 -->
+          <article class="review-card">
+            <div class="review-head">
+              <div class="avatar" style="background-image:url('https://i.pravatar.cc/80?img=52')"></div>
+              <div class="meta">
+                <div class="name">Rafael M.</div>
+                <div class="date">2025-05-04</div>
+                <div class="stars">
+                  <span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span>
+                </div>
+              </div>
+              
+            </div>
+            <p class="review-text">Seriedad y buen trato. Me dieron seguridad desde el principio.</p>
+          </article>
+
+          <!-- 8 -->
+          <article class="review-card">
+            <div class="review-head">
+             <div class="avatar" style="background-image:url('https://i.pravatar.cc/80?img=45')"></div>
+              <div class="meta">
+                <div class="name">Sandra G.</div>
+                <div class="date">2025-04-21</div>
+                <div class="stars">
+                  <span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star off">★</span>
+                </div>
+              </div>
+              
+            </div>
+            <p class="review-text clamp" data-full="Me ayudaron a ordenar la documentación y a entender qué se reclamaba realmente. El informe venía con comparativa y explicación de cada concepto. Profesionales y claros.">
+              Me ayudaron a ordenar la documentación y a entender qué se reclamaba realmente. El informe venía con comparativa...
+            </p>
+            <button class="readmore" type="button">Leer más</button>
+          </article>
+
+          <!-- 9 -->
+          <article class="review-card">
+            <div class="review-head">
+              <div class="avatar">C</div>
+              <div class="meta">
+                <div class="name">Carlos J.</div>
+                <div class="date">2025-04-02</div>
+                <div class="stars">
+                  <span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span>
+                </div>
+              </div>
+              
+            </div>
+            <p class="review-text">Comunicación constante y sin rodeos. Lo recomiendo.</p>
+          </article>
+        </div>
+
+        <button class="reviews-arrow right" type="button" aria-label="Siguiente" id="revNext">›</button>
+      </div>
+    </div>
+
+    <!-- Modal simple -->
+    <div class="review-modal" id="reviewModal" aria-hidden="true">
+      <div class="review-modal-card" role="dialog" aria-modal="true">
+        <button class="review-modal-close" type="button" id="closeReview">✕</button>
+        <div class="review-modal-body" id="modalBody"></div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const phone = "34666869119";
+    const whatsappText = "Hola José, tengo una reclamación de deuda y quiero una revisión. ¿Qué documentación debo enviar?";
+    document.getElementById("waTop").href =
+      `https://wa.me/${phone}?text=${encodeURIComponent(whatsappText)}`;
+
+    // ==============================
+    // NUEVO: Carrusel de opiniones
+    // ==============================
+    const track = document.getElementById("reviewsTrack");
+    const prev = document.getElementById("revPrev");
+    const next = document.getElementById("revNext");
+
+    function scrollByCards(dir){
+      if(!track) return;
+      const card = track.querySelector(".review-card");
+      if(!card) return;
+
+      const gap = 18; // mismo gap del CSS
+      const step = (card.getBoundingClientRect().width + gap) * 3; // de 3 en 3
+      track.scrollBy({ left: dir * step, behavior: "smooth" });
+    }
+
+    prev && prev.addEventListener("click", () => scrollByCards(-1));
+    next && next.addEventListener("click", () => scrollByCards(1));
+// ==============================
+// Autoplay carrusel (suave)
+// ==============================
+const prefersReducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+let autoTimer = null;
+let userInteracting = false;
+
+function startAutoplay(){
+  if(prefersReducedMotion) return;
+  if(!track) return;
+  stopAutoplay();
+
+  autoTimer = setInterval(() => {
+    if(userInteracting) return;
+    // Avanza igual que la flecha derecha (de 3 en 3)
+    scrollByCards(1);
+
+    // Si está al final, vuelve al inicio (suave)
+    const nearEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 10;
+    if(nearEnd){
+      track.scrollTo({ left: 0, behavior: "smooth" });
+    }
+  }, 6000); // 6s
+}
+
+function stopAutoplay(){
+  if(autoTimer){
+    clearInterval(autoTimer);
+    autoTimer = null;
+  }
+}
+
+// Pausar cuando el usuario interactúa
+track && track.addEventListener("mouseenter", () => { userInteracting = true; });
+track && track.addEventListener("mouseleave", () => { userInteracting = false; });
+track && track.addEventListener("touchstart", () => { userInteracting = true; }, { passive:true });
+track && track.addEventListener("touchend", () => { userInteracting = false; }, { passive:true });
+track && track.addEventListener("wheel", () => { userInteracting = true; }, { passive:true });
+
+prev && prev.addEventListener("mouseenter", () => { userInteracting = true; });
+next && next.addEventListener("mouseenter", () => { userInteracting = true; });
+prev && prev.addEventListener("mouseleave", () => { userInteracting = false; });
+next && next.addEventListener("mouseleave", () => { userInteracting = false; });
+
+// Pausar si el modal está abierto
+function isModalOpen(){
+  return modal && modal.getAttribute("aria-hidden") === "false";
+}
+const _openModal = openModal;
+openModal = function(text){
+  stopAutoplay();
+  _openModal(text);
+};
+const _closeModal = closeModal;
+closeModal = function(){
+  _closeModal();
+  startAutoplay();
+};
+
+// Arrancar
+startAutoplay();
+
+
+    // Leer más (modal)
+    const modal = document.getElementById("reviewModal");
+    const modalBody = document.getElementById("modalBody");
+    const closeBtn = document.getElementById("closeReview");
+
+    function openModal(text){
+      if(!modal || !modalBody) return;
+      modalBody.textContent = (text || "").trim();
+      modal.setAttribute("aria-hidden", "false");
+    }
+
+    function closeModal(){
+      if(!modal || !modalBody) return;
+      modal.setAttribute("aria-hidden", "true");
+      modalBody.textContent = "";
+    }
+
+    document.querySelectorAll(".readmore").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const p = btn.previousElementSibling;
+        const full = p?.getAttribute("data-full") || p?.textContent || "";
+        openModal(full);
+      });
+    });
+
+    closeBtn && closeBtn.addEventListener("click", closeModal);
+    modal && modal.addEventListener("click", (e) => { if(e.target === modal) closeModal(); });
+    document.addEventListener("keydown", (e) => { if(e.key === "Escape") closeModal(); });
+  </script>
+
+<!-- ==============================
+     NUEVO: Paso a paso
+     ============================== -->
+<section id="pasos" class="pasos">
+  <div class="container">
+    <h2>Tu caso, paso a paso</h2>
+
+    <div class="paso reveal">
+      <div class="paso-img">
+        <img src="1.jpg" alt="Paso 1">
+      </div>
+      <div class="paso-texto">
+        <h3>Paso 1</h3>
+        <p>
+          Explícanos brevemente tu situación y la reclamación recibida.
+          Revisamos el contexto y nos pondremos en contacto contigo a la mayor brevedad
+          para indicarte cómo proceder.
+        </p>
+      </div>
+    </div>
+
+    <div class="paso reverse reveal">
+      <div class="paso-img">
+        <img src="2.jpg" alt="Paso 2">
+      </div>
+      <div class="paso-texto">
+        <h3>Paso 2</h3>
+        <p>
+          Analizamos la documentación disponible y realizamos un estudio técnico
+          de la deuda. Si falta algún documento, te indicamos cómo obtenerlo.
+        </p>
+      </div>
+    </div>
+
+    <div class="paso reveal">
+      <div class="paso-img">
+        <img src="3.jpg" alt="Paso 3">
+      </div>
+      <div class="paso-texto">
+        <h3>Paso 3</h3>
+        <p>
+          Recalculamos la deuda conforme a contrato y normativa,
+          identificando errores o partidas discutibles,
+          y te explicamos el resultado de forma clara y documentada.
+        </p>
+      </div>
+    </div>
+
+    <div class="paso reverse reveal">
+      <div class="paso-img">
+        <img src="4.jpg" alt="Paso 4">
+      </div>
+      <div class="paso-texto">
+        <h3>Paso 4</h3>
+        <p>
+          Con el cálculo correcto como base, iniciamos la negociación
+          y la defensa frente a la reclamación,
+          con el objetivo de ajustar la deuda.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==============================
+     NUEVO: Preguntas frecuentes
+     ============================== -->
+<section id="pf" class="faq">
+  <div class="container">
+    <div class="faq-head">
+      <h2>Preguntas frecuentes</h2>
+      <p>Respuestas claras y sin promesas irreales.</p>
+    </div>
+
+    <div class="faq-card">
+      <details class="faq-item">
+        <summary>¿Sirve aunque no haya cláusula suelo?</summary>
+        <div class="faq-body">
+          Sí. En impagados actuales el margen suele estar en intereses de demora, comisiones, liquidaciones erróneas y recálculo del capital tras impagos.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>¿Qué documentación necesitáis?</summary>
+        <div class="faq-body">
+          Escritura y novaciones, movimientos/liquidaciones (extractos o cuadro) y la reclamación recibida (burofax/carta/demanda). Si falta algo, te orientamos.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>¿Cuánto tarda el estudio?</summary>
+        <div class="faq-body">
+          Depende del volumen de movimientos y la complejidad (novaciones, cambios de tipo, periodos de impago). Si hay plazos, se prioriza.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>¿Garantizáis reducción de deuda?</summary>
+        <div class="faq-body">
+          No. Se actúa con base técnica y jurídica. Un caso con partidas discutibles mejora opciones, pero cada reclamante y cada procedimiento es distinto.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>¿Cómo se calcula el “ahorro” del 18%?</summary>
+        <div class="faq-body">
+          Ahorro = (deuda inicial reclamada en el último requerimiento/demanda) − (importe finalmente acordado o pagado). Se deja definido por escrito antes de actuar.
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     NUEVO: Contacto
+     ============================== -->
+<section id="contacto" class="contacto">
+  <div class="container">
+    <div class="contacto-head">
+      <h2>Solicita tu revisión</h2>
+      <p>
+        Cuéntanos tu caso y revisaremos tu situación con criterio técnico y jurídico.
+      </p>
+    </div>
+
+    <form class="contacto-form">
+  <input type="text" placeholder="Nombre" required>
+  <input type="email" placeholder="Email" required>
+  <input type="tel" placeholder="Teléfono" required>
+  <textarea placeholder="Describe brevemente tu caso" rows="6"></textarea>
+
+  <div class="contacto-actions">
+  <button type="submit" class="btn navy btn-wide">Enviar consulta</button>
+  <a class="btn navy btn-wide" href="tel:+34666869119">Llámanos</a>
+  <a class="btn navy btn-wide" href="#" id="waContact">Escríbenos</a>
+</div>
+
+</form>
+
+  </div>
+</section>
+
+<script>
+  // Animación suave al hacer scroll (IntersectionObserver)
+  const reveals = document.querySelectorAll(".reveal");
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add("is-visible");
+        io.unobserve(entry.target); // una vez y listo
+      }
+    });
+  }, { threshold: 0.15 });
+
+  reveals.forEach(el => io.observe(el));
+
+// Botón WhatsApp en Contacto
+const waContactText = "Hola José, quiero solicitar una revisión de mi deuda. ¿Qué documentación debo enviar?";
+const waContactBtn = document.getElementById("waContact");
+if (waContactBtn){
+  waContactBtn.href = `https://wa.me/${phone}?text=${encodeURIComponent(waContactText)}`;
+}
+
+</script>
+
+<footer class="site-footer" id="footer">
+  <div class="container footer-grid">
+    <!-- Col 1: Marca -->
+    <div class="footer-brand">
+      <div class="footer-brand-top">
+        <img src="logobeni.jpg" alt="Logo José Benítez Barragán">
+        <div>
+          <div class="footer-title">José Benítez Barragán</div>
+          <div class="footer-sub">Abogado especialista en revisión técnica de deuda y defensa frente a reclamaciones de bancos y fondos.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Col 2: Servicios -->
+    <div class="footer-col">
+      <div class="footer-col-title">Servicios</div>
+      <a href="#servicios">Revisión y cálculo</a>
+      <a href="#servicios">Negociación</a>
+      <a href="#servicios">Defensa integral</a>
+      <a href="#pasos">Proceso paso a paso</a>
+    </div>
+
+    <!-- Col 3: Información -->
+    <div class="footer-col">
+      <div class="footer-col-title">Información</div>
+      <a href="#opiniones">Opiniones</a>
+      <a href="#pf">Preguntas frecuentes</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+
+    <!-- Col 4: Legal -->
+    <div class="footer-col">
+      <div class="footer-col-title">Legal</div>
+      <a href="aviso-legal.html">Aviso legal</a>
+      <a href="politica-privacidad.html">Política de privacidad</a>
+      <a href="politica-cookies.html">Política de cookies</a>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <div>© 2026 José Benítez Barragán</div>
+      </div>
+</footer>
+
+
+</body>
+</html>
