@@ -1150,6 +1150,50 @@
   .brand .name span{ display:none; } /* quita subtítulo si no cabe */
   .cta .btn{ padding: 10px 12px; font-size: 14px; }
 }
+/* =========================
+   MOBILE HEADER ALIGN (FIX)
+   ========================= */
+@media (max-width: 720px){
+
+  /* Centrar bloque marca */
+  .header .brand{
+    width:100%;
+    justify-content:center;
+    text-align:center;
+  }
+
+  /* Barra de navegación en móvil: centrada */
+  .header .nav{
+    width:100%;
+    justify-content:center;
+  }
+
+  /* Menú + CTA como grupo centrado y alineado */
+  .header .cta{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    align-items:center;
+  }
+
+  .menu-btn,
+  .header .cta .btn{
+    height:44px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .menu-btn{
+    width:44px;
+  }
+
+  .header .cta .btn{
+    padding: 0 16px;
+    border-radius: 999px;
+  }
+}
 
 
   </style>
@@ -1877,4 +1921,5 @@ if (waContactBtn){
 
 </body>
 </html>
+
 
