@@ -1006,7 +1006,7 @@
 .trust-marquee-track{
   display:flex;
   width:max-content;
-  animation: trustScroll 14s linear infinite; /* más rápido (antes 22s) */
+  animation: trustScroll 65s linear infinite; /* más rápido (antes 22s) */
 }
 
 .trust-marquee-group{
@@ -1151,150 +1151,82 @@
   .cta .btn{ padding: 10px 12px; font-size: 14px; }
 }
 /* =========================
-   MOBILE HEADER ALIGN (FIX)
+/* =========================
+   MOBILE FIX (LIMPIO)
    ========================= */
 @media (max-width: 720px){
 
-  /* Centrar bloque marca */
-  .header .brand{
-    width:100%;
-    justify-content:center;
-    text-align:center;
+  /* Topbar: una sola línea, compacto */
+  :root{ --topbar-h: 48px; }
+
+  body{ padding-top: var(--topbar-h); }
+
+  .topbar{
+    height: var(--topbar-h);
+  }
+  .topbar .wrap{
+    padding: 0;
+    justify-content: flex-end;
+    gap: 12px;
+    flex-wrap: nowrap;
+  }
+  .top-right{ gap: 12px; }
+  .top-item span{ display:none; } /* ocultar texto teléfono/email */
+  .wa{ white-space: nowrap; }
+
+  /* Header: apilado y centrado, sin caos */
+  header.header{ top: var(--topbar-h); }
+
+  .nav{
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
   }
 
-  /* Barra de navegación en móvil: centrada */
-  .header .nav{
-    width:100%;
-    justify-content:center;
+  .brand{
+    min-width: 0;
+    justify-content: center;
+    text-align: center;
   }
 
-  /* Menú + CTA como grupo centrado y alineado */
-  .header .cta{
-    width:100%;
-    display:flex;
-    justify-content:center;
-    gap:12px;
-    align-items:center;
+  .brand img{
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
   }
 
-  .menu-btn,
-  .header .cta .btn{
-    height:44px;
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
+  .brand .name strong{ font-size: 18px; }
+  .brand .name span{ font-size: 14px; }
+
+  .cta{
+    width: 100%;
+    justify-content: center;
+    gap: 12px;
   }
 
   .menu-btn{
-    width:44px;
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .header .cta .btn{
+  .cta .btn.navy{
+    height: 44px;
     padding: 0 16px;
     border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Hero: que no “corte” raro */
+  .hero{
+    height: 520px;
+    background-position: center;
   }
 }
-
-@media (max-width: 720px){
-
-  /* Cabecera: que todo quede centrado y en 2 filas coherentes */
-  .header .container{
-    display:flex !important;
-    flex-direction:column !important;
-    align-items:center !important;
-    gap:14px !important;
-    padding-top:12px !important;
-    padding-bottom:12px !important;
-  }
-
-  /* Marca centrada */
-  .header .brand{
-    width:100% !important;
-    justify-content:center !important;
-    text-align:center !important;
-    margin:0 !important;
-  }
-  .header .brand .name{
-    text-align:left !important; /* cambia a center si quieres */
-  }
-
-  /* Fila de botones (menú + CTA) centrada */
-  .header .nav{
-    width:100% !important;
-    display:flex !important;
-    justify-content:center !important;
-  }
-  .header .cta{
-    width:100% !important;
-    display:flex !important;
-    justify-content:center !important;
-    align-items:center !important;
-    gap:12px !important;
-  }
-
-  /* Botones a la misma altura */
-  .menu-btn{
-    width:44px !important;
-    height:44px !important;
-    display:inline-flex !important;
-    align-items:center !important;
-    justify-content:center !important;
-  }
-  .header .cta .btn{
-    height:44px !important;
-    display:inline-flex !important;
-    align-items:center !important;
-    justify-content:center !important;
-    padding:0 16px !important;
-    border-radius:999px !important;
-  }
-}
-
-@media (max-width: 720px){
-
-  /* que la fila principal se apile y quede centrada */
-  header.header .nav{
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 12px !important;
-  }
-
-  /* marca centrada */
-  header.header .brand{
-    min-width: 0 !important;
-    width: 100% !important;
-    justify-content: center !important;
-    text-align: center !important;
-  }
-  header.header .brand .name{
-    text-align: left; /* si lo quieres centrado: center */
-  }
-
-  /* fila de botones (menú + solicitar) centrada y misma altura */
-  header.header .cta{
-    width: 100% !important;
-    justify-content: center !important;
-  }
-
-  header.header .menu-btn{
-    width: 44px !important;
-    height: 44px !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-  }
-
-  header.header .cta .btn.navy{
-    height: 44px !important;
-    padding: 0 16px !important;
-    border-radius: 999px !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-  }
-}
-
 
   </style>
 </head>
@@ -2017,6 +1949,27 @@ if (waContactBtn){
     <div>© 2026 José Benítez Barragán</div>
       </div>
 </footer>
+
+<script>
+  // Asegura que la “cinta” tenga muchas repeticiones sin copiar a mano
+  (function(){
+    const track = document.querySelector(".trust-marquee-track");
+    const group = document.querySelector(".trust-marquee-group");
+    if(!track || !group) return;
+
+    // Borra duplicados previos si recargas
+    const groups = track.querySelectorAll(".trust-marquee-group");
+    if(groups.length > 2){
+      for(let i=2;i<groups.length;i++) groups[i].remove();
+    }
+
+    // Clonamos hasta que haya “cinta” de sobra
+    const minWidth = window.innerWidth * 10; // equivalente a “10 veces”
+    while(track.scrollWidth < minWidth){
+      track.appendChild(group.cloneNode(true));
+    }
+  })();
+</script>
 
 
 </body>
