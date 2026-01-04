@@ -1078,6 +1078,78 @@
     margin-right:auto !important;
   }
 }
+/* =========================
+   MOBILE FIX (HEADER/TOPBAR)
+   ========================= */
+@media (max-width: 720px){
+
+  /* Topbar: que no se parta y no ocupe media pantalla */
+  .topbar{
+    padding: 10px 0;
+  }
+  .topbar .wrap{
+    justify-content: flex-end; /* todo a la derecha */
+    gap: 12px;
+    flex-wrap: nowrap;
+  }
+  .topbar .top-item{
+    gap: 8px;
+  }
+  /* En móvil: ocultamos texto largo y dejamos iconos + WhatsApp */
+  .topbar .top-item span{
+    display:none;
+  }
+  /* Deja WhatsApp visible con texto */
+  .topbar .wa{
+    white-space: nowrap;
+    padding: 8px 10px;
+    border-radius: 999px;
+  }
+
+  /* Header: logo + título más compactos */
+  .header .container{
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .brand{
+    gap: 12px;
+  }
+  .brand img{
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+  }
+  .brand .name strong{
+    font-size: 18px;
+    line-height: 1.1;
+  }
+  .brand .name span{
+    font-size: 14px;
+    line-height: 1.2;
+  }
+
+  /* Fila de menú + CTA: alineados y sin “saltos” */
+  .nav{
+    align-items: center;
+    gap: 12px;
+  }
+  .menu-btn{
+    width: 44px;
+    height: 44px;
+  }
+  .cta .btn{
+    width: auto;
+    padding: 10px 14px;
+    border-radius: 999px;
+  }
+}
+
+/* Móvil pequeño */
+@media (max-width: 420px){
+  .brand .name span{ display:none; } /* quita subtítulo si no cabe */
+  .cta .btn{ padding: 10px 12px; font-size: 14px; }
+}
 
 
   </style>
@@ -1805,3 +1877,4 @@ if (waContactBtn){
 
 </body>
 </html>
+
