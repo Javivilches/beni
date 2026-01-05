@@ -1197,6 +1197,22 @@
 @media (max-width: 768px){
   .wa-float{ display:flex; }
 }
+/* =========================
+   TRUST BAR – MOVIMIENTO EN MÓVIL
+   ========================= */
+@media (max-width: 768px){
+
+  .trust-marquee{
+    overflow: hidden;
+  }
+
+  .trust-marquee-track{
+    display: flex;
+    width: max-content;
+    animation: trustScroll 45s linear infinite;
+  }
+
+}
 
   </style>
 </head>
@@ -1257,7 +1273,7 @@
           <ul>
             <li><a href="#servicios">Servicios</a></li>
             <li><a href="#opiniones">Opiniones</a></li>
-            <li><a href="#pasos">Paso a paso</a></li>
+            <li><a href="#pasos">Como trabajamos</a></li>
             <li><a href="#pf">Preguntas frecuentes</a></li>
             <li><a href="#contacto">Contacto</a></li>
           </ul>
@@ -1963,6 +1979,7 @@ if (waContactBtn){
 
 </body>
 </html>
+
 
 
 
