@@ -1358,6 +1358,57 @@
   /* Quitar cualquier margen extra que empuje hacia abajo */
   .brand, nav{ margin: 0 !important; }
 }
+/* =========================
+   MOBILE HEADER ULTRA COMPACT
+   ========================= */
+@media (max-width: 768px){
+
+  /* Header aún más bajo */
+  header{
+    padding: 6px 0 2px !important;
+  }
+
+  /* Quitar márgenes verticales ocultos */
+  .nav,
+  nav,
+  nav ul{
+    margin: 0 !important;
+  }
+
+  /* Menú pegado al bloque superior */
+  nav ul{
+    padding: 2px 8px !important;
+    gap: 10px !important;
+  }
+
+  nav ul li{
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  nav ul li a{
+    padding: 4px 0 !important;
+    line-height: 1.1 !important;
+  }
+
+  /* Marca: aún más compacta */
+  .brand{
+    margin-bottom: 2px !important;
+  }
+
+  .brand img{
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .brand .name strong{
+    font-size: 16px !important;
+  }
+
+  .brand .name span{
+    font-size: 12.5px !important;
+  }
+}
 
 
   </style>
@@ -2106,6 +2157,7 @@ if (waContactBtn){
 
 </body>
 </html>
+
 
 
 
