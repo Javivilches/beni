@@ -1308,6 +1308,57 @@
     display: none !important;
   }
 }
+    /* =========================
+   MOBILE HEADER: MÁS COMPACTO
+   ========================= */
+@media (max-width: 768px){
+
+  /* Reduce altura del header blanco */
+  header{
+    padding: 8px 0 4px !important;
+  }
+
+  .nav{
+    gap: 4px !important;
+  }
+
+  /* Marca más pequeña */
+  .brand{
+    gap: 8px !important;
+    margin: 0 !important;
+  }
+
+  .brand img{
+    width: 42px !important;
+    height: 42px !important;
+  }
+
+  .brand .name strong{
+    font-size: 17px !important;
+    line-height: 1.05 !important;
+  }
+
+  .brand .name span{
+    font-size: 13px !important;
+    margin-top: 1px !important;
+  }
+
+  /* Menú aún más compacto y en una sola línea con scroll suave */
+  nav ul{
+    padding: 4px 10px !important;
+    gap: 12px !important;
+    margin: 0 !important;
+  }
+
+  nav ul li a{
+    font-size: 13px !important;
+    padding: 6px 0 !important;
+  }
+
+  /* Quitar cualquier margen extra que empuje hacia abajo */
+  .brand, nav{ margin: 0 !important; }
+}
+
 
   </style>
 </head>
@@ -2055,6 +2106,7 @@ if (waContactBtn){
 
 </body>
 </html>
+
 
 
 
