@@ -1410,6 +1410,30 @@
   }
 }
 
+/* =========================
+   MOBILE: MENÚ SUPER COMPACTO
+   ========================= */
+@media (max-width: 768px){
+
+  /* Menú horizontal: letra más pequeña y menos espacio */
+  nav ul{
+    gap: 8px !important;
+    padding: 2px 8px !important;
+  }
+
+  nav ul li a{
+    font-size: 12px !important;
+    letter-spacing: -0.2px;
+    padding: 3px 0 !important;
+    line-height: 1 !important;
+  }
+
+  /* Si tu menú tiene separadores o bordes, los quitamos */
+  nav ul li::before,
+  nav ul li::after{
+    display:none !important;
+  }
+}
 
   </style>
 </head>
@@ -2157,6 +2181,7 @@ if (waContactBtn){
 
 </body>
 </html>
+
 
 
 
