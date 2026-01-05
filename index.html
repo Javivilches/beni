@@ -1227,6 +1227,87 @@
     background-position: center;
   }
 }
+/* =========================
+   MOBILE HEADER CUSTOM
+   ========================= */
+@media (max-width: 768px){
+
+  /* ===== TOPBAR (navy) ===== */
+  .topbar{
+    padding: 10px 0;
+  }
+
+  .topbar .wrap{
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  /* Mostrar texto en móvil (antes lo ocultábamos) */
+  .topbar .top-item span{
+    display: inline;
+    font-size: 14px;
+  }
+
+  .topbar .top-item{
+    gap: 6px;
+  }
+
+  /* ===== HEADER BLANCO ===== */
+  header{
+    padding: 12px 0 8px;
+  }
+
+  .nav{
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* Logo + nombre centrados */
+  .brand{
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .brand img{
+    width: 48px;
+    height: 48px;
+  }
+
+  .brand .name strong{
+    font-size: 18px;
+    line-height: 1.1;
+  }
+
+  .brand .name span{
+    display: block;
+    font-size: 14px;
+    color: #5f6b7a;
+    margin-top: 2px;
+  }
+
+  /* ===== MENÚ HORIZONTAL ===== */
+  nav ul{
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 6px 12px;
+  }
+
+  nav ul li a{
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  /* ===== QUITAR CTA Y HAMBURGUESA ===== */
+  .cta,
+  .menu-btn{
+    display: none !important;
+  }
+}
 
   </style>
 </head>
@@ -1974,6 +2055,7 @@ if (waContactBtn){
 
 </body>
 </html>
+
 
 
 
