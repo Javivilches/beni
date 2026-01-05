@@ -1267,26 +1267,7 @@
 
   </style>
 </head>
-  <script>
-(function(){
-  if(window.matchMedia("(min-width: 769px)").matches) return;
-
-  const els = document.querySelectorAll(".reveal");
-  if(!("IntersectionObserver" in window) || !els.length) return;
-
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){
-        e.target.classList.add("is-visible");
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.15 });
-
-  els.forEach(el=>io.observe(el));
-})();
-</script>
-
+  
 
 <body>
 
@@ -1940,28 +1921,45 @@ startAutoplay();
 </section>
 
 <script>
-  // Animación suave al hacer scroll (IntersectionObserver)
+document.addEventListener("DOMContentLoaded", () => {
+
+  // ===== REVEAL (Servicios + Pasos) =====
   const reveals = document.querySelectorAll(".reveal");
+  if(!reveals.length) return;
+
+  // Si no hay IntersectionObserver, mostramos todo
+  if(!("IntersectionObserver" in window)){
+    reveals.forEach(el => el.classList.add("is-visible"));
+    return;
+  }
 
   const io = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if(entry.isIntersecting){
-        entry.target.classList.add("is-visible");
-        io.unobserve(entry.target); // una vez y listo
+        // Truco para que SIEMPRE haya transición (evita “salto” en móvil)
+        requestAnimationFrame(() => {
+          entry.target.classList.add("is-visible");
+        });
+        io.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.15, rootMargin: "0px 0px -10% 0px" });
 
   reveals.forEach(el => io.observe(el));
 
-// Botón WhatsApp en Contacto
-const waContactText = "Hola José, quiero solicitar una revisión de mi deuda. ¿Qué documentación debo enviar?";
-const waContactBtn = document.getElementById("waContact");
-if (waContactBtn){
-  waContactBtn.href = `https://wa.me/${phone}?text=${encodeURIComponent(waContactText)}`;
-}
+  // ===== WhatsApp Contacto =====
+  const phone = "34604865611"; // tu número real (sin +)
+  const waContactText = "Hola José, quiero solicitar una revisión de mi deuda. ¿Qué documentación debo enviar?";
+  const waContactBtn = document.getElementById("waContact");
+  if (waContactBtn){
+    waContactBtn.href = `https://wa.me/${phone}?text=${encodeURIComponent(waContactText)}`;
+    waContactBtn.target = "_blank";
+    waContactBtn.rel = "noopener";
+  }
 
+});
 </script>
+
 
 <footer class="site-footer" id="footer">
   <div class="container footer-grid">
@@ -2050,6 +2048,7 @@ if (waContactBtn){
 
 </body>
 </html>
+
 
 
 
